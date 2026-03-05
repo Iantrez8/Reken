@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard — REKEN</title>
+    <meta name="description" content="Your REKEN command center overview." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/layouts.css" />
+</head>
+
+<body>
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" id="dashSidebar">
+        <a href="/" class="dash-sidebar-logo">
+            <img src="/images/reken_logo.png" alt="REKEN Logo" style="height: 48px; width: auto; object-fit: contain;">
+        </a>
+        <nav class="dash-nav">
+            <a href="/dashboard/overview.html" class="dash-nav-link active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" />
+                </svg>
+                Overview
+            </a>
+            <a href="/dashboard/campaigns.html" class="dash-nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
+                Campaigns
+            </a>
+            <a href="/dashboard/analytics.html" class="dash-nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 20V10M18 20V4M6 20v-4" />
+                </svg>
+                Analytics
+            </a>
+            <a href="/dashboard/billing.html" class="dash-nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                    <line x1="2" y1="10" x2="22" y2="10" />
+                </svg>
+                Billing
+            </a>
+            <a href="/dashboard/settings.html" class="dash-nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="3" />
+                    <path
+                        d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+                </svg>
+                Settings
+            </a>
+        </nav>
+        <div style="padding: 16px 24px; border-top: 1px solid rgba(255,255,255,0.06);">
+            <a href="/" class="btn-ghost btn-sm" style="width:100%; justify-content:center; font-size:0.8rem;">← Back to
+                Home</a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dash-main" id="dashMain">
+        <div class="dash-glow" aria-hidden="true"></div>
+        <div class="dash-topbar">
+            <div class="dash-welcome">
+                <p id="dashRoleBadge"
+                    style="font-size:0.75rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent-sapphire); margin-bottom:8px;">
+                    Dashboard</p>
+                <h1 id="dashWelcome">Welcome back</h1>
+                <p>Your command center is ready. Here's your operational snapshot.</p>
+            </div>
+            <button class="dash-toggle-btn" id="dashToggle" aria-label="Toggle sidebar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="dash-cards-grid">
+            <div class="dash-stat-card">
+                <p class="dash-stat-label">Active Sessions</p>
+                <p class="dash-stat-value">1,284</p>
+            </div>
+            <div class="dash-stat-card">
+                <p class="dash-stat-label">Operations Today</p>
+                <p class="dash-stat-value">847</p>
+            </div>
+            <div class="dash-stat-card">
+                <p class="dash-stat-label">Uptime</p>
+                <p class="dash-stat-value">99.99%</p>
+            </div>
+            <div class="dash-stat-card">
+                <p class="dash-stat-label">Latency</p>
+                <p class="dash-stat-value">&lt;42ms</p>
+            </div>
+        </div>
+
+        <div class="dash-content-card">
+            <h2>Recent Activity</h2>
+            <p class="dash-placeholder">Activity feed is being provisioned. Your operational data will appear here in
+                real-time once your integrations are configured.</p>
+        </div>
+
+        <div class="dash-content-card">
+            <h2>Quick Actions</h2>
+            <p class="dash-placeholder">Your personalised quick-action panel is under construction. Configure your
+                integrations to unlock this feature.</p>
+        </div>
+    </main>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+
+</html>

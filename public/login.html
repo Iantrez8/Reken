@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login — REKEN</title>
+    <meta name="description" content="Access your REKEN command center." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/layouts.css" />
+</head>
+
+<body>
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">
+                <img src="/images/reken_logo.png" alt="REKEN Logo"
+                    style="height: 64px; width: auto; object-fit: contain;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/signup.html" class="btn-glow btn-sm">Request Access</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="login-page">
+        <div class="signup-glow-1" aria-hidden="true"></div>
+        <div class="signup-glow-2" aria-hidden="true"></div>
+        <div class="login-container">
+            <div class="login-header">
+                <h1>Welcome <span class="text-gradient">Back</span></h1>
+                <p>Access your secure command center.</p>
+            </div>
+            <div class="login-card">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" class="form-input" placeholder="your@email.com" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" class="form-input" placeholder="Enter your password"
+                            required />
+                    </div>
+                    <div class="signup-actions" style="margin-top: 32px;">
+                        <button type="submit" class="btn-glow" style="flex:1; justify-content:center;">
+                            <span>Authenticate</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+                <div class="login-footer">
+                    <p>Don't have an account? <a href="/signup.html">Request Access</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="/js/main.js"></script>
+    <script>
+        document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+
+            const btnText = document.querySelector('#loginForm button span');
+            const originalText = btnText.innerText;
+            btnText.innerText = 'Authenticating...';
+
+            try {
+                // Call Cloud Run backend API directly — no Firebase SDK auth needed
+                const res = await fetch('https://reken-api-313523212713.us-central1.run.app/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await res.json();
+
+                if (!data.success) {
+                    throw new Error(data.message || 'Invalid credentials.');
+                }
+
+                // Store user info in sessionStorage for dashboard use
+                sessionStorage.setItem('reken_user', JSON.stringify({
+                    email: email,
+                    occupation: data.occupation,
+                    userId: data.userId
+                }));
+
+                window.location.href = `/dashboard/overview.html?role=${data.occupation}`;
+            } catch (err) {
+                alert(err.message || 'Invalid credentials.');
+                btnText.innerText = originalText;
+            }
+        });
+    </script>
+</body>
+
+</html>

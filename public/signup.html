@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join REKEN — Create Your Account</title>
+    <meta name="description"
+        content="Create your REKEN account and unlock elite digital infrastructure for your organisation." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/layouts.css" />
+</head>
+
+<body>
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">
+                <img src="/images/reken_logo.png" alt="REKEN Logo"
+                    style="height: 64px; width: auto; object-fit: contain;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/login.html" class="btn-ghost btn-sm">Log In</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"
+                aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-actions"><a href="/login.html" class="btn-ghost">Log In</a></div>
+        </div>
+    </nav>
+
+    <section class="signup-page">
+        <div class="signup-glow-1" aria-hidden="true"></div>
+        <div class="signup-glow-2" aria-hidden="true"></div>
+        <div class="signup-container">
+            <div class="signup-header">
+                <h1>Join <span class="text-gradient">REKEN</span></h1>
+                <p>Create your secure account and unlock elite digital infrastructure.</p>
+            </div>
+
+            <div class="step-indicator" id="stepIndicator">
+                <div class="step-dot active" data-step="1"></div>
+                <div class="step-line"></div>
+                <div class="step-dot" data-step="2"></div>
+                <div class="step-line"></div>
+                <div class="step-dot" data-step="3"></div>
+                <div class="step-line"></div>
+                <div class="step-dot" data-step="4"></div>
+            </div>
+
+            <div class="signup-step active" data-step="1">
+                <div class="signup-card">
+                    <div class="form-group"><label for="signup-name">Full Name</label><input type="text"
+                            id="signup-name" class="form-input" placeholder="Enter your full name" /></div>
+                    <div class="form-group"><label for="signup-email">Email Address</label><input type="email"
+                            id="signup-email" class="form-input" placeholder="your@email.com" /></div>
+                    <div class="form-group"><label for="signup-password">Password</label><input type="password"
+                            id="signup-password" class="form-input" placeholder="Create a secure password" /></div>
+                    <div class="signup-actions"><a href="/" class="btn-back">← Back</a><button class="btn-glow"
+                            id="step1Next">Continue</button></div>
+                </div>
+            </div>
+
+            <div class="signup-step" data-step="2">
+                <div class="signup-card">
+                    <p style="color: var(--text-secondary); margin-bottom: 24px; text-align: center;">Select your
+                        primary role</p>
+                    <div class="occupation-grid" id="occupationGrid">
+                        <div class="occupation-card" data-occupation="entrepreneur"><span
+                                class="occ-icon">🚀</span><span class="occ-label">Entrepreneur</span></div>
+                        <div class="occupation-card" data-occupation="lawyer"><span class="occ-icon">⚖️</span><span
+                                class="occ-label">Lawyer</span></div>
+                        <div class="occupation-card" data-occupation="doctor"><span class="occ-icon">🩺</span><span
+                                class="occ-label">Doctor</span></div>
+                        <div class="occupation-card" data-occupation="trader"><span class="occ-icon">📈</span><span
+                                class="occ-label">Trader</span></div>
+                        <div class="occupation-card" data-occupation="developer"><span class="occ-icon">💻</span><span
+                                class="occ-label">Developer</span></div>
+                        <div class="occupation-card" data-occupation="designer"><span class="occ-icon">🎨</span><span
+                                class="occ-label">Designer</span></div>
+                        <div class="occupation-card" data-occupation="executive"><span class="occ-icon">👔</span><span
+                                class="occ-label">Executive</span></div>
+                        <div class="occupation-card" data-occupation="politician"><span class="occ-icon">🏛️</span><span
+                                class="occ-label">Politician</span></div>
+                    </div>
+                    <div class="signup-actions"><button class="btn-back" id="step2Back">← Back</button><button
+                            class="btn-glow" id="step2Next">Continue</button></div>
+                </div>
+            </div>
+
+            <div class="signup-step" data-step="3">
+                <div class="signup-card">
+                    <p style="color: var(--text-secondary); margin-bottom: 24px; text-align: center;">What are your
+                        primary goals?</p>
+                    <div class="goals-grid" id="goalsGrid">
+                        <div class="goal-chip" data-goal="analytics">Advanced Analytics</div>
+                        <div class="goal-chip" data-goal="security">Enterprise Security</div>
+                        <div class="goal-chip" data-goal="automation">Workflow Automation</div>
+                        <div class="goal-chip" data-goal="compliance">Regulatory Compliance</div>
+                        <div class="goal-chip" data-goal="scaling">Scale Operations</div>
+                        <div class="goal-chip" data-goal="integration">System Integration</div>
+                    </div>
+                    <div class="signup-actions"><button class="btn-back" id="step3Back">← Back</button><button
+                            class="btn-glow" id="step3Next">Continue</button></div>
+                </div>
+            </div>
+
+            <div class="signup-step" data-step="4">
+                <div class="signup-card">
+                    <p style="color: var(--text-secondary); margin-bottom: 24px; text-align: center;">How did you hear
+                        about REKEN?</p>
+                    <div class="source-grid" id="sourceGrid">
+                        <div class="source-chip" data-source="referral">Referral</div>
+                        <div class="source-chip" data-source="social">Social Media</div>
+                        <div class="source-chip" data-source="search">Search Engine</div>
+                        <div class="source-chip" data-source="press">Press / Media</div>
+                        <div class="source-chip" data-source="event">Conference / Event</div>
+                        <div class="source-chip" data-source="other">Other</div>
+                    </div>
+                    <div class="signup-actions">
+                        <button class="btn-back" id="step4Back">← Back</button>
+                        <button class="btn-glow" id="signupSubmit"><span>Create Secure Account</span><svg width="16"
+                                height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="signup-step" data-step="loading">
+                <div class="signup-card signup-loading">
+                    <div class="loading-spinner"></div>
+                    <p>Provisioning your secure environment...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/signup.js"></script>
+</body>
+
+</html>
